@@ -1,3 +1,7 @@
+import java.util.*;
+
+import apple.laf.JRSUIConstants.Size;
+
 public class Stackimplementation {
     int[] arr;
     int top = -1;
@@ -16,9 +20,28 @@ public class Stackimplementation {
     public void push(int x) {
         if (isFull()) {
             System.out.println("stack is full");
+            return;
         } else {
-            top += 1;
+            top++;
             arr[top] = x;
+        }
+    }
+
+    public void pop() {
+        if (top==-1) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Poped element :"+" "+arr[top]);
+            int []k=new int[top--];
+            for (int i = 0; i < k.length; i++) {
+                k[i]=arr[i];
+            }
+            System.out.println("Stack after pop operation: ");
+            
+                for (int i = 0; i <= top; i++) {
+                    System.out.println(k[i]);
+                }
+            
         }
     }
 
@@ -29,12 +52,15 @@ public class Stackimplementation {
     }
 
     public static void main(String[] args) {
-        Stackimplementation stk = new Stackimplementation(5);
+        Stackimplementation stk= new Stackimplementation(5);
         stk.push(10);
         stk.push(20);
         stk.push(30);
-        stk.push(4);
-        stk.print();
-
+        stk.push(40);
+        stk.push(50);
+        stk.push(60);
+        
+        stk.pop();
+        
     }
 }
