@@ -76,6 +76,38 @@ public class Stackimplementation {
         return stk.isEmpty();
     }
 
+    public int evalRPN(String[] tokens) {
+        int u,v;
+        Stack <Integer> stk = new Stack <Integer>();
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].equals("+")) {
+                u=stk.pop();
+                v=stk.pop();
+                stk.push(u+v);
+            }
+            else if (tokens[i].equals("-")) {
+                u=stk.pop();
+                v=stk.pop();
+                stk.push(v-u);
+                
+            }
+            else if (tokens[i].equals("/")) {
+                u=stk.pop();
+                v=stk.pop();
+                stk.push(v/u);
+            }
+            else if(tokens[i].equals("*")){
+                stk.push(stk.pop()*stk.pop());
+            }
+            else{
+                int k=Integer.parseInt(tokens[i]);
+                stk.push(k);
+            }
+        }
+        return stk.pop();
+        
+    }
+
 
 
     public static void main(String[] args) {
@@ -84,12 +116,9 @@ public class Stackimplementation {
         stk.push(26);
         stk.push(5);
         stk.push(7);
-        
-     
 
-        int m=stk.getMin();
-        System.out.println(m);
-        
+        String[] jk={"4","13","5","/","+"};
+        System.out.println(stk.evalRPN(jk));
 
     }
 }
