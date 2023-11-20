@@ -55,21 +55,18 @@ public class Stackimplementation {
 
     }
 
-// Valid parentheses
+    // Valid parentheses
     public boolean isValid(String s) {
-        Stack <Character> stk = new Stack<Character>() ;
-        char []j=s.toCharArray();
+        Stack<Character> stk = new Stack<Character>();
+        char[] j = s.toCharArray();
         for (int i = 0; i < j.length; i++) {
-            if (j[i]=='(') {
+            if (j[i] == '(') {
                 stk.push(')');
-            }
-            else if (j[i]=='{') {
+            } else if (j[i] == '{') {
                 stk.push('}');
-            }
-            else if (j[i]=='[') {
+            } else if (j[i] == '[') {
                 stk.push(']');
-            }
-            else if (stk.empty()||stk.pop()!=j[i]) {
+            } else if (stk.empty() || stk.pop() != j[i]) {
                 return false;
             }
         }
@@ -77,38 +74,31 @@ public class Stackimplementation {
     }
 
     public int evalRPN(String[] tokens) {
-        int u,v;
-        Stack <Integer> stk = new Stack <Integer>();
+        int u, v;
+        Stack<Integer> stk = new Stack<Integer>();
         for (int i = 0; i < tokens.length; i++) {
             if (tokens[i].equals("+")) {
-                u=stk.pop();
-                v=stk.pop();
-                stk.push(u+v);
-            }
-            else if (tokens[i].equals("-")) {
-                u=stk.pop();
-                v=stk.pop();
-                stk.push(v-u);
-                
-            }
-            else if (tokens[i].equals("/")) {
-                u=stk.pop();
-                v=stk.pop();
-                stk.push(v/u);
-            }
-            else if(tokens[i].equals("*")){
-                stk.push(stk.pop()*stk.pop());
-            }
-            else{
-                int k=Integer.parseInt(tokens[i]);
+                u = stk.pop();
+                v = stk.pop();
+                stk.push(u + v);
+            } else if (tokens[i].equals("-")) {
+                u = stk.pop();
+                v = stk.pop();
+                stk.push(v - u);
+
+            } else if (tokens[i].equals("/")) {
+                u = stk.pop();
+                v = stk.pop();
+                stk.push(v / u);
+            } else if (tokens[i].equals("*")) {
+                stk.push(stk.pop() * stk.pop());
+            } else {
+                int k = Integer.parseInt(tokens[i]);
                 stk.push(k);
             }
         }
         return stk.pop();
-        
     }
-
-
 
     public static void main(String[] args) {
         Stackimplementation stk = new Stackimplementation(5);
@@ -117,7 +107,7 @@ public class Stackimplementation {
         stk.push(5);
         stk.push(7);
 
-        String[] jk={"4","13","5","/","+"};
+        String[] jk = { "4", "13", "5", "/", "+" };
         System.out.println(stk.evalRPN(jk));
 
     }
