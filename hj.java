@@ -22,8 +22,6 @@ public class hj {
     }
 
     public static void main(String[] args) {
-        hj foo=new hj();
-        boolean k=foo.isValid("{}[]");
-        System.out.println(k);
+        
     }
 }

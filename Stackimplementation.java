@@ -110,16 +110,14 @@ public class Stackimplementation {
     public static void main(String[] args) {
         Stackimplementation stk = new Stackimplementation(5);
         stk.push(4);
-        stk.push(26);
-        stk.push(5);
         stk.push(57);
         stk.push(87);
         stk.push(77);
 
+        stk.pop();
         stk.print();
 
-        String[] jk = { "4", "13", "5", "/", "+" };
-        System.out.println(stk.evalRPN(jk));
+        
 
     }
 }
