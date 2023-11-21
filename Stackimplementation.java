@@ -116,6 +116,8 @@ public class Stackimplementation {
         stk.push(87);
         stk.push(77);
 
+        stk.print();
+
         String[] jk = { "4", "13", "5", "/", "+" };
         System.out.println(stk.evalRPN(jk));
 
