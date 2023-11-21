@@ -100,12 +100,21 @@ public class Stackimplementation {
         return stk.pop();
     }
 
+    public int[] dailyTemperatures(int[] temperatures) {
+        int ans[]={};
+        
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         Stackimplementation stk = new Stackimplementation(5);
         stk.push(4);
         stk.push(26);
         stk.push(5);
-        stk.push(7);
+        stk.push(57);
+        stk.push(87);
+        stk.push(77);
 
         String[] jk = { "4", "13", "5", "/", "+" };
         System.out.println(stk.evalRPN(jk));
