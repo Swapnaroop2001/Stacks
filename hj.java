@@ -29,5 +29,6 @@ public class hj {
         foo.push(40);
         int k=foo.size();
         System.out.println(k);
+        
     }
 }
