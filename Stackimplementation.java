@@ -1,6 +1,5 @@
 import java.util.*;
 
-import apple.laf.JRSUIConstants.Size;
 
 public class Stackimplementation {
     int[] arr;
@@ -100,6 +99,24 @@ public class Stackimplementation {
         return stk.pop();
     }
 
+    //Reverese the given words.
+    public void reverseWords(String str) {
+        Stack <Character> stk = new Stack <Character>();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i)!=' ') {
+                stk.push(str.charAt(i));
+            } else {
+                while (!stk.isEmpty()) {
+                    System.out.print(stk.pop());
+                }
+                System.out.print(" ");
+            }
+        }
+        while (!stk.isEmpty()) {
+            System.out.print(stk.pop());
+        }
+    }
+
     public int[] dailyTemperatures(int[] temperatures) {
         int ans[]={};
         
@@ -114,8 +131,7 @@ public class Stackimplementation {
         stk.push(87);
         stk.push(77);
 
-        stk.pop();
-        stk.print();
+        stk.reverseWords("Man Of The Match goes to Virat");
 
         
 
