@@ -22,6 +22,12 @@ public class hj {
     }
 
     public static void main(String[] args) {
-        
+        Stack  <Integer> foo = new Stack  <Integer>();
+        foo.push(10);
+        foo.push(20);
+        foo.push(30);
+        foo.push(40);
+        int k=foo.size();
+        System.out.println(k);
     }
 }

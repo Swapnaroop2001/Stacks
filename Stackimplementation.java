@@ -102,6 +102,7 @@ public class Stackimplementation {
     //Reverese the given words.
     public void reverseWords(String str) {
         Stack <Character> stk = new Stack <Character>();
+        
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i)!=' ') {
                 stk.push(str.charAt(i));
@@ -117,6 +118,37 @@ public class Stackimplementation {
         }
     }
 
+    static void deleteMid(Stack<Character> st){
+        Vector<Character> v = new Vector<Character>();
+        int j=st.size();
+        while (!st.isEmpty()) {
+            v.add(st.pop());
+        }
+        if (j%2==0) {
+            int mid=j/2;
+            for (int i = 0; i < j; i++) {
+                if (i==mid) {
+                    continue;
+                }
+                else{
+                    st.add(v.get(i));
+                }
+            }   
+        } else {
+            int mid=j/2 +1;
+            for (int i = 0; i < j; i++) {
+                if (i==mid) {
+                    continue;
+                }
+                else{
+                    st.add(v.get(i));
+                }
+            }     
+        }
+        System.out.print(st);
+
+    }
+
     public int[] dailyTemperatures(int[] temperatures) {
         int ans[]={};
         
@@ -126,10 +158,19 @@ public class Stackimplementation {
 
     public static void main(String[] args) {
         Stackimplementation stk = new Stackimplementation(5);
-        stk.push(4);
-        stk.push(57);
-        stk.push(87);
-        stk.push(77);
+        stk.push('4');
+        stk.push('3');
+        stk.push('5');
+        stk.push('6');
+        Stack <Character> st = new Stack<Character>();
+        st.push('4');
+        st.push('3');
+        st.push('5');
+        st.push('6');
+       
+
+        stk.deleteMid(st);
+        
 
         stk.reverseWords("Man Of The Match goes to Virat");
 
