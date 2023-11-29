@@ -149,11 +149,27 @@ public class Stackimplementation {
 
     }
 
-    public int[] dailyTemperatures(int[] temperatures) {
-        int ans[]={};
-        
 
-        return ans;
+
+    public int[] dailyTemperatures(int[] temperatures) {
+        
+        int[] prr=new int[temperatures.length-1];
+        Stack <Integer> jk=new Stack<Integer>();
+        
+        for (int i = 0; i <temperatures.length-1; i++) {
+            int j=i+1;
+            if (j==temperatures.length-1) {
+                prr[prr.length-1]=0;
+            }
+            while (temperatures[j]<=temperatures[i] && j<temperatures.length-1) {
+                jk.push(temperatures[j]);
+                j++;
+            }
+            prr[i]=jk.size();
+            jk.clear();
+
+        }
+        return prr;
     }
 
     public static void main(String[] args) {
@@ -167,12 +183,19 @@ public class Stackimplementation {
         st.push('3');
         st.push('5');
         st.push('6');
+
+        int[] temp={73,74,75,71,69,72,76,73};
+        int[]k=stk.dailyTemperatures(temp);
+        for (int i : k) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
        
 
-        stk.deleteMid(st);
+      
         
 
-        stk.reverseWords("Man Of The Match goes to Virat");
+        
 
         
 
