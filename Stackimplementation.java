@@ -51,7 +51,6 @@ public class Stackimplementation {
     public int getMin() {
         Arrays.sort(arr);
         return arr[1];
-
     }
 
     // Valid parentheses
@@ -71,6 +70,19 @@ public class Stackimplementation {
         }
         return stk.isEmpty();
     }
+
+    //Two stacks in one array.
+    Stackimplementation(int number){
+        
+        int top1=n/2;
+        int top2=n/2+1;
+    }
+
+
+
+
+
+
 
     public int evalRPN(String[] tokens) {
         int u, v;
@@ -152,22 +164,28 @@ public class Stackimplementation {
 
 
     public int[] dailyTemperatures(int[] temperatures) {
-        
-        int[] prr=new int[temperatures.length-1];
+        int count=0;
+        int[] prr=new int[temperatures.length];
         Stack <Integer> jk=new Stack<Integer>();
-        
-        for (int i = 0; i <temperatures.length-1; i++) {
+        for (int i = 0; i < prr.length-1; i++) {
             int j=i+1;
-            if (j==temperatures.length-1) {
-                prr[prr.length-1]=0;
-            }
-            while (temperatures[j]<=temperatures[i] && j<temperatures.length-1) {
+            while (temperatures[j]<=temperatures[i] && j<prr.length) {
                 jk.push(temperatures[j]);
-                j++;
+                if (j<prr.length) {
+                    j++;
+                }
             }
-            prr[i]=jk.size();
-            jk.clear();
-
+            if (temperatures.length<j) {
+                
+            }
+            if (temperatures[j]>temperatures[i]) {
+                count=jk.size()+1;
+                prr[i]=count;
+                jk.clear();
+            }
+            if (!jk.isEmpty() && j<prr.length) {
+                prr[i]=0;
+            }
         }
         return prr;
     }
@@ -177,6 +195,7 @@ public class Stackimplementation {
         stk.push('4');
         stk.push('3');
         stk.push('5');
+        stk.push('s');
         stk.push('6');
         Stack <Character> st = new Stack<Character>();
         st.push('4');
@@ -184,20 +203,13 @@ public class Stackimplementation {
         st.push('5');
         st.push('6');
 
-        int[] temp={73,74,75,71,69,72,76,73};
+        int[] temp={73,70,67,71,69,72,76,73};
         int[]k=stk.dailyTemperatures(temp);
         for (int i : k) {
             System.out.print(i+" ");
         }
         System.out.println();
        
-
-      
-        
-
-        
-
-        
 
     }
 }
