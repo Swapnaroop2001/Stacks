@@ -72,12 +72,7 @@ public class Stackimplementation {
     }
 
     //Two stacks in one array.
-    Stackimplementation(int number){
-        
-        int top1=n/2;
-        int top2=n/2+1;
-    }
-
+    
 
 
 
