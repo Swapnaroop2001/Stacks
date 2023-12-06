@@ -72,7 +72,13 @@ public class Stackimplementation {
     }
 
     //Two stacks in one array.
-    
+    public void TwoSatck(int n) {
+        int[] foo = new int[n];
+        int mid=n/2;
+        int mid2=n/2+1;
+        
+    }
+
 
 
 
